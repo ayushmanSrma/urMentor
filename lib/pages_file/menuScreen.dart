@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:ur_mentor/chat_file/chatHome.dart';
+import 'package:ur_mentor/chat_file/Screens/chatHome.dart';
 import 'package:ur_mentor/chat_file/chatMain.dart';
 import 'package:ur_mentor/pages_file/complete_profile.dart';
 import 'menuItem.dart';

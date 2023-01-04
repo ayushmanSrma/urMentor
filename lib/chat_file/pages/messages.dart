@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:ur_mentor/chat_file/helper.dart';
 import 'package:ur_mentor/chat_file/models/messageData.dart';
+import 'package:ur_mentor/chat_file/Screens/chat_screen.dart';
+import 'package:ur_mentor/chat_file/theme.dart';
 
 import '../Widgets/avatar.dart';
 import '../models/story_data.dart';
@@ -17,7 +19,7 @@ class MessagesPages extends StatefulWidget {
 class _MessagesPagesState extends State<MessagesPages> {
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
+    return const CustomScrollView(
       slivers: [
         SliverToBoxAdapter(
           child: _Stories(),
@@ -54,30 +56,82 @@ class _MessageTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Avatar.medium(url: messageData.profilePicture,),
-        ),
-        Flexible(child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    return InkWell(
+      onTap: (){
+        Navigator.of(context).push(ChatScreen.route(messageData));
+      },
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 8),
+        height: 85,
+        child: Row(
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Text(messageData.senderName,style: TextStyle(
-                fontFamily: 'AppleFont',
-                fontWeight: FontWeight.w800
-              ),),
+             Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Avatar.medium(
+                url: messageData.profilePicture,
+              ),
             ),
-            SizedBox(
-                height: 18,
-                child: Text(messageData.message.trim(),
-                overflow: TextOverflow.ellipsis,)),
-
+            Expanded(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Text(
+                    messageData.senderName,
+                    style: const TextStyle(
+                        fontFamily: 'AppleFont', fontWeight: FontWeight.w800),
+                  ),
+                ),
+                SizedBox(
+                    height: 18,
+                    child: Text(
+                      messageData.message.trim(),
+                      overflow: TextOverflow.ellipsis,
+                    )),
+              ],
+            )),
+            Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 4),
+                  Text(
+                    messageData.dateMessage.toUpperCase(),
+                    style: const TextStyle(
+                      fontFamily: 'AppleFont',
+                      color: AppColors.textFaded,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Container(
+                    width: 18,
+                    height: 18,
+                    decoration: const BoxDecoration(
+                      color: AppColors.secondary,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Center(
+                      child: Text(
+                        '1',
+                        style: TextStyle(
+                          fontFamily: 'AppleFont',
+                          color: AppColors.textLigth,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
           ],
-        ))
-      ],
+        ),
+      ),
     );
   }
 }

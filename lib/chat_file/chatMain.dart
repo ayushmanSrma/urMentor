@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ur_mentor/chat_file/chatHome.dart';
+import 'package:ur_mentor/chat_file/Screens/chatHome.dart';
 import 'package:ur_mentor/chat_file/theme.dart';
 
 class chatMain extends StatelessWidget {

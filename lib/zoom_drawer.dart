@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:ur_mentor/chat_file/chatHome.dart';
+import 'package:ur_mentor/chat_file/Screens/chatHome.dart';
 import 'package:ur_mentor/chat_file/chatMain.dart';
 import 'package:ur_mentor/pages_file/HomePage.dart';
 import 'package:ur_mentor/pages_file/complete_profile.dart';
