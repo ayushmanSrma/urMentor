@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
           context: context,
           builder: (BuildContext context) => AlertDialog(
             content: Text(e.message.toString(),
-              style: TextStyle(
+              style: const TextStyle(
                   fontSize: 15,
                   fontFamily: 'AppleFont',
                   fontWeight: FontWeight.w600),
@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               //Welcome to urMentor Text
               SizedBox(height: 100), //for the height
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.all(28.0),
                 child: Text(
                   'Welcome to CORSIT',
@@ -163,7 +163,7 @@ class _LoginPageState extends State<LoginPage> {
                        );
               },
 
-                     child: Text('Forgot Password?',style: TextStyle(
+                     child: const Text('Forgot Password?',style: TextStyle(
                       fontFamily: 'AppleFont',
                       fontWeight: FontWeight.w600,
                       fontSize: 16,
@@ -196,7 +196,7 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Not a member?',
                     style: TextStyle(
                         fontSize: 16,
@@ -205,7 +205,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   GestureDetector(
                     onTap: widget.showRegisterPage,
-                    child: Text(
+                    child: const Text(
                       'Register Now',
                       style: TextStyle(
                           fontSize: 16,
